@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Validation</title>
+    <style>
+        input { display: block; margin: 10px; }
+        .valid { border: 2px solid green; }
+        .invalid { border: 2px solid red; }
+    </style>
+</head>
+<body>
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <p id="feedback"></p>
+
+    <script>
+        function validate() {
+            let name = document.getElementById("name");
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+
+            name.className = name.value.trim() ? "valid" : "invalid";
+            email.className = email.value.includes("@") ? "valid" : "invalid";
+            password.className = password.value.match(/^(?=.*[A-Z])(?=.*\d).{8,}$/) ? "valid" : "invalid";
+        }
+
+        document.querySelectorAll("input").forEach(input => input.addEventListener("input", validate));
+    </script>
+</body>
+</html>
