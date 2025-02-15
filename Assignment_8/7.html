@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Key Press Detector</title>
+</head>
+<body>
+    <p id="keyPressed">Press any key...</p>
+
+    <script>
+        document.addEventListener("keydown", event => {
+            document.getElementById("keyPressed").textContent = `You pressed: ${event.key}`;
+        });
+    </script>
+</body>
+</html>
